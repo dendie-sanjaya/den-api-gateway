@@ -1,5 +1,15 @@
-# Den Api Gateway
+## Den Api Gateway
 
-A Api Gateway write in nodejs
+A Api Gateway for RESTful API (Representational State Transfer Application Programming Interface)  write in nodejs
 
-## Structur Directory
+## Skema Position Api Gateway
+
+## Structure Directory
+
+## Simple Guide / Documentation
+
+## Contact
+
+## Licens
+
+
