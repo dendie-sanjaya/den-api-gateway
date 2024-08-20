@@ -1,26 +1,24 @@
 ## Den Api Gateway
 
-A Api Gateway for RESTful API (Representational State Transfer Application Programming Interface)  write in nodejs
+Den Api Gateway is a gateway to handle RESTful API (Representational State Transfer Application Programming Interface) written using the nodejs programming language.
 
-## Skema Position Api Gateway
+## Position Api Gateway Scheme
 
-## 
+![Sampe Get API](./asset-readme/Aristeku.png)
 
-Version nodejs : v14.15.3
+## Basic Requirements
 
-Port Running Server 
+Version nodejs: v14.15.3
 
-  2998 : Server API Gateway Login
-  
-  2999 : Server API Gateway Proxy
-
-
-## Structure Directory
+## Directory Structure
 
 ## Simple Guide / Documentation
 
 ## Contact
 
-## Licens
+If you have question, you can contact this email   
+Email: dendie.sanjaya@gmail.com
 
+## License
 
+This project is licensed under the MIT License.
