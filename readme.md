@@ -1,5 +1,14 @@
 # DenProx
 
+## Table of Contents
+- [Introducing](#introducing)
+- [Position Api Gateway Scheme](#position-api-gateway-scheme)
+- [Basic Requirements](#basic-requirements)
+- [Directory Structure](#directory-structure)
+- [Simple Guide / Documentation](#simple-guide--documentation)
+- [Contact](#contact)
+- [License](#license)
+  
 ## Introducing
 
 DenProx Api Gateway is a gateway to handle RESTful API (Representational State Transfer Application Programming Interface) written using the nodejs programming language.
