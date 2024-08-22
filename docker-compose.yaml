@@ -1,0 +1,49 @@
+version: "3.8"
+services:
+  redis:
+     image: redis:5.0.12
+     container_name: redis    
+     command: redis-server --requirepass redispass
+     ports:
+       - 6378:6379 
+
+  mongodb:
+      image: mongo:latest   
+      container_name: mongo
+      restart: unless-stopped
+      build:
+        context: .
+        #dockerfile: Dockerfile
+      expose:
+        - 27017    
+      ports:
+        - 27017:27017      
+      volumes:
+        - type: volume
+          source: mongo_data 
+          target: /data/db 
+    
+volumes:
+  mongo_data:       
+
+  
+  
+
+  # app_microservice_user_wallet:
+  #   container_name: microservice-user-wallet
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.microservice-user-wallet  
+  #   image: microservice-user-wallet:latest
+  #   ports:
+  #     - "50052:50052"
+  #   environment:
+  #     - MOGI_HOST=postgres
+  #     - POSTGRES_PORT=5432
+  #     - POSTGRES_USER=postgres
+  #     - POSTGRES_PASSWORD=password
+  #     - REDIS_HOST=redis:6379
+  #     - REDIS_PORT=6379
+  #     - REDIS_PASSWORD=redispass
+  #   depends_on:
+  #     - postgres
