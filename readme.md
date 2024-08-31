@@ -51,7 +51,7 @@ Coding standar use linter [eslint](https://eslint.org/)
 ## Simple Guide Documentation Branch Repository
 
 1. The **dev-x.x.x** branch corresponds to the release actively under development.
-2. The **stable-x.X.x** branches correspond to stable releases.
+2. The **stable-x.x.x** branches correspond to stable releases.
 3. Create a branch based on **dev.x.x.x** and set up a development environment if you want to open a PR by issue (feature / bug).
 
    example: **dev-v.1.1.0-feature-use-linter-code-group-lib-and-file-server-js**
