@@ -3,7 +3,7 @@ services:
   redis:
      image: redis:5.0.12
      container_name: redis    
-     command: redis-server --requirepass redispass
+     command: redis-server --requirepass password
      ports:
        - 6378:6379 
 
@@ -11,9 +11,9 @@ services:
       image: mongo:latest   
       container_name: mongo
       restart: unless-stopped
-      build:
-        context: .
-        #dockerfile: Dockerfile
+      environment:
+        MONGO_INITDB_ROOT_USERNAME: root
+        MONGO_INITDB_ROOT_PASSWORD: password     
       expose:
         - 27017    
       ports:
@@ -23,27 +23,14 @@ services:
           source: mongo_data 
           target: /data/db 
     
+  service_demo_1:
+    container_name: service-demo-1
+    build:
+      context: .
+      dockerfile: Dockerfile.service-demo-1 
+    image: service-demo-1
+    ports:
+      - "4000:4000"
+
 volumes:
   mongo_data:       
-
-  
-  
-
-  # app_microservice_user_wallet:
-  #   container_name: microservice-user-wallet
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile.microservice-user-wallet  
-  #   image: microservice-user-wallet:latest
-  #   ports:
-  #     - "50052:50052"
-  #   environment:
-  #     - MOGI_HOST=postgres
-  #     - POSTGRES_PORT=5432
-  #     - POSTGRES_USER=postgres
-  #     - POSTGRES_PASSWORD=password
-  #     - REDIS_HOST=redis:6379
-  #     - REDIS_PORT=6379
-  #     - REDIS_PASSWORD=redispass
-  #   depends_on:
-  #     - postgres

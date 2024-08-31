@@ -1,7 +1,7 @@
 module.exports = {
-  HOST: "127.0.0.1",
+  HOST: "redis",
   PORT: "6379",
   USER: "",
-  PASSWORD: "",  
+  PASSWORD: "password",  
   EXPIRED:1800
 }; 

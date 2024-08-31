@@ -1,6 +1,7 @@
 var ms = new Array();
 
-ms['ms-one'] = "http://192.168.1.2";
-ms['ms-two'] = "http://192.168.1.3"; 
+ms['ms-one'] = "http://localhost:4000";
+ms['ms-two'] = "http://localhost:5000"; 
+ms['ms-tree'] = "http://localhost:6000";
 
 module.exports = ms;
