@@ -2,7 +2,7 @@
 
 ## Table of Contents
 - [Introducing](#introducing)
-- [Position Api Gateway Scheme](#position-api-gateway-scheme)
+- [Implementation](#implemetation)
 - [Basic Requirements](#basic-requirements)
 - [Directory Structure](#directory-structure)
 - [Coding Guidelines](#coding-guidelines) 
@@ -15,15 +15,15 @@
 
 DenProx Api Gateway is a gateway to handle RESTful API & Reverse Proxy & Single Sign On Application written using the nodejs programming language.
 
-## Position Api Gateway Scheme
+## Implementation
 
 ![Sampe Get API](./asset-readme/Aristeku.png)
 
 ## Basic Requirements
 
-Version nodejs: >= v14.15.3
-version mongodb: >= v.6.0
-versin redis: >= 5.0.0
+1. Version nodejs: >= v14.15.3
+2. version mongodb: >= v.6.0
+3. version redis: >= 5.0.0
 
 ## Directory Structure
 
@@ -47,6 +47,8 @@ versin redis: >= 5.0.0
 
 
 ## Coding Guidelines ##
+Coding standar use linter [eslint](https://eslint.org/) 
+
 
 ## Simple Guide Documentation Branch Repository
 
@@ -55,6 +57,10 @@ versin redis: >= 5.0.0
 3. Create a branch based on **dev.x.x.x** and set up a development environment if you want to open a PR by issue (feature / bug).
 
    example: **dev-v.1.1.0-feature-use-linter-code-group-lib-and-file-server-js**
+
+## Instalation
+
+<code>git clone https://github.com/dendie-sanjaya/den-api-gateway.git</code>
 
 ## Roadmap
 Based on team and community feedback, an initial roadmap will be published for a major or minor version (ex: 1.0.0, 1.1.0). The Roadmap page details what is planned and how to influence the roadmap.
