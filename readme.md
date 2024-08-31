@@ -26,8 +26,7 @@ DenProx Api Gateway is a gateway to handle RESTful API & Reverse Proxy & Single 
 3. version redis: >= 5.0.0
 
 ## Directory Structure
-
-<pre><code>
+<code>
 ├── app
     └── config
     └── model
@@ -37,7 +36,7 @@ DenProx Api Gateway is a gateway to handle RESTful API & Reverse Proxy & Single 
 ├── node_modules
 └── server-login.js
 └── server.js
-</code></pre>
+</code><
 
 - app/Config/       : Place for all global config 
 - app/config/lib    : Place for all global function
