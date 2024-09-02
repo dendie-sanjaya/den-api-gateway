@@ -1,25 +1,29 @@
 <?php
-// index.php
-
-// Set header untuk mengizinkan akses dari semua origin
 header("Access-Control-Allow-Origin: *");
-// Set header untuk mengizinkan metode HTTP tertentu
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
-// Set header untuk mengizinkan tipe konten tertentu
 header("Content-Type: application/json; charset=UTF-8");
 
-// Fungsi untuk menangani permintaan ke endpoint "/"
 function handleRequest() {
-    // Periksa metode permintaan
-    if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-        // Kirim respons "Hello, World!" dalam format JSON
-        echo json_encode(["message" => "Hello, World!, Miroservei 3 PHP"]);
+    $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+    if ($uri === '/') {
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            echo json_encode(["message" => "Hello, World!, Microservice 3 PHP"]);
+        } else {
+            http_response_code(405);
+            echo json_encode(["message" => "Method Not Allowed"]);
+        }
+    } elseif ($uri === '/ms-3/welcome') {
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            echo json_encode(["message" => "Welcome to Microservice 3"]);
+        } else {
+            http_response_code(405);
+            echo json_encode(["message" => "Method Not Allowed"]);
+        }
     } else {
-        // Kirim respons metode tidak diizinkan
-        http_response_code(405);
-        echo json_encode(["message" => "Method Not Allowed"]);
+        http_response_code(404);
+        echo json_encode(["message" => "Not Found"]);
     }
 }
 
-// Panggil fungsi untuk menangani permintaan
 handleRequest();

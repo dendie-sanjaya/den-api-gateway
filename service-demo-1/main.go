@@ -15,6 +15,11 @@ func main() {
 		return c.SendString("Hello, World! - Microservice 1 - Go")
 	})
 
+	// Mendefinisikan route untuk endpoint "/"
+	app.Get("/ms-1/welcome", func(c *fiber.Ctx) error {
+		return c.SendString("Hello, World! - Microservice 1 - Go")
+	})
+
 	// Menjalankan server pada port 3000
 	log.Fatal(app.Listen(":4000"))
 }

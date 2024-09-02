@@ -1,0 +1,14 @@
+# Gunakan image PHP resmi
+FROM php:8.0-cli
+
+# Set working directory
+WORKDIR /app
+
+# Copy file index.php ke dalam container
+COPY service-demo-3/ ./
+
+# Expose port 6000
+EXPOSE 5500
+
+# Jalankan built-in PHP server pada port 5500
+CMD ["php", "-S", "0.0.0.0:5500", "-t", "/app"]

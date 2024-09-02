@@ -1,0 +1,19 @@
+# Stage 1: Build stage
+FROM python:3.9-slim AS build
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the requirements file
+COPY service-demo-2/ ./
+
+# Install dependencies
+#RUN pip install --upgrade 
+RUN pip install --no-cache-dir -r requirements.txt
+
+
+# Expose port 4500
+EXPOSE 4300
+
+# Set the entrypoint command
+CMD ["python", "app.py"]

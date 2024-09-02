@@ -32,5 +32,24 @@ services:
     ports:
       - "4000:4000"
 
+  service_demo_2:
+    container_name: service-demo-2
+    build:
+      context: .
+      dockerfile: Dockerfile.service-demo-2 
+    image: service-demo-2
+    ports:
+      - "4500:4500"
+
+  service_demo_3:
+    container_name: service-demo-3
+    build:
+      context: .
+      dockerfile: Dockerfile.service-demo-3 
+    image: service-demo-3
+    ports:
+      - "5500:5500"
+
+
 volumes:
   mongo_data:       
