@@ -1,5 +1,5 @@
 module.exports = {
-  HOST: "mongo",
+  HOST: "localhost",
   HOST_REPLICATION: "",
   PORT: "27017",
   PORT_REPLICATION: "",

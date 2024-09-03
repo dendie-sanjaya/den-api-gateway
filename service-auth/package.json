@@ -1,0 +1,29 @@
+{
+  "name": "microservice-notification",
+  "version": "1.0.0",
+  "description": "microservice notification (email,messanger)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.playcourt.id/antares/microservice-notification.git"
+  },
+  "author": "antares",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2",
+    "http-proxy-middleware": "^2.0.3",
+    "jsonwebtoken": "^8.5.1",
+    "kafkajs": "^1.15.0",
+    "mongodb": "^4.3.1",
+    "mysql": "^2.18.1",
+    "node-html-parser": "^5.2.0",
+    "nodemailer": "^6.7.2",
+    "redis": "^4.0.4",
+    "request": "^2.88.2",
+    "require": "^2.4.20",
+    "uuid": "^8.3.2"
+  }
+}

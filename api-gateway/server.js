@@ -39,7 +39,7 @@ proxy.on('proxyReq', function(proxyReq, req, res, options) {
 				"data_request":data_req_post,
 		};
 		//console.log('REQ: SEBELUM LOG');  
-		log.ms_log_activity_user(info_user.email,body_log_activity);
+		//log.ms_log_activity_user(info_user.email,body_log_activity);
 		//console.log('REQ: SETELAH LOG');  
 		//console.log(body_log_activity);  
 	});
@@ -69,7 +69,7 @@ proxy.on('proxyRes', function (proxyRes, req, res_proxy) {
 				"data_respon":data_respon
 		};
 		//console.log('RESPON: SEBELUM LOG');  
-		log.ms_log_activity_user(info_user.email,body_log_activity);
+		//log.ms_log_activity_user(info_user.email,body_log_activity);
 		//console.log('RESPON: SEBELUM LOG');  
 		//console.log(body_log_activity); 
 		res_proxy.end(); 
@@ -86,7 +86,7 @@ app.use((req, res, next) => {
 	if(urlNoAuthorize.indexOf(path) >= 0) {
 		if(mappingMS[path_arr[1]]) {
 			if (token == null) {
-				const data_no_authorization = JSON.stringify({email: "no.authorization"});
+				const data_no_authorization = JSON.stringify({user_id: "no.authorization"});
 			  	info_user = JSON.parse(data_no_authorization);
 			    proxy.web(req, res, {
 			        target:  mappingMS[path_arr[1]],

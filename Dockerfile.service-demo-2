@@ -12,7 +12,7 @@ COPY service-demo-2/ ./
 RUN pip install --no-cache-dir -r requirements.txt
 
 
-# Expose port 4500
+# Expose port 4300
 EXPOSE 4300
 
 # Set the entrypoint command

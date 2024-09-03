@@ -10,11 +10,8 @@ const request = require('request');
 const global_func = require('./lib/global_func.js');
 const redisConfig = require("./app/config/redis.config.js");
 
-
-// parse requests of content-type: application/json
 app.use(bodyParser.json());
 
-// parse requests of content-type: application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.post('/signin-user', function (req, res, next) {
@@ -29,20 +26,13 @@ app.post('/signin-user', function (req, res, next) {
 		}
 
 		request.post({
-		  url:     mappingMS['ms-kyc'] + '/ms-kyc/login',
-		  form:    { email: req.body.username, password: req.body.password, is_cms: is_cms_value }
+		  url:     mappingMS['ms-auth'] + '/ms-auth/login',
+		  form:    { email: req.body.username, password: req.body.password }
 		}, function(error, response, body){
 			try {
 				respon_kyc = JSON.parse(response.body);
 			    if((respon_kyc.code == 200) && (respon_kyc.status.toLowerCase() == 'success')) {
 					redis.new(generate_token,respon_kyc.data);
-
-					request.post({
-					  url:     mappingMS['ms-kyc'] + '/ms-kyc/session/addSession',
-					  form:    { token: generate_token, user_id: respon_kyc.data.id, created_at: global_func.getDateTimeNow() , expired_at: global_func.getDateTimeAdd((redisConfig.EXPIRED/60))}
-					}, function(errorSession, responseSession, bodySession){
-						//res.status(code).send(responseSession);	
-					});	
 
 					var respon_body = {
 							"status": "success",
@@ -77,35 +67,11 @@ app.post('/signin-user', function (req, res, next) {
 		});		
 });
 
-/*
-app.post('/signin-cms', function (req, res, next) {
-		//lakukan check login ke microservrice kyc table admin cms
-		let generate_token = 'cms-'+req.body.username+'-'+uuid.v4();
-		let code = 200;
-		let data = {username: req.body.username, password:  req.body.password};	
-		redis.new(generate_token,data);
-		var respon_body = {
-				"status": "success",
-				"code":code,
-				"message": 'Login Success - Get Token',
-				"data": data,
-				"token": generate_token
-		};
-		res.status(code).send(respon_body);			
-});
-*/
 
 app.get('/signout', function (req, res, next) {
 		let code = 200;
 		let data = {token: req.query.token};	
 		redis.delete(req.query.token);
-
-		request.post({
-		  url:     mappingMS['ms-kyc'] + '/ms-kyc/session/delSession',
-		  form:    { token: req.query.token}
-		}, function(errorSession, responseSession, bodySession){
-			//res.status(code).send(responseSession);	
-		});	
 
 		var respon_body = {
 				"status": "success",

@@ -3,10 +3,14 @@ const redisConfig = require("../config/redis.config.js");
 const log = require("./log.model.js");
 
 if((redisConfig.USER.length > 0) && (redisConfig.PASSWORD.length > 1)) {
-   var connection = 'redis://'+redisConfig.USER+':'+redisConfig.PASSWORD+'@'+redisConfig.HOST+':'+rediscConfig.PORT;
+   var connection = 'redis://'+redisConfig.USER+':'+redisConfig.PASSWORD+'@'+redisConfig.HOST+':'+redisConfig.PORT;
 } else {
-   var connection = 'redis://'+redisConfig.HOST+':'+redisConfig.PORT+'/';
-}
+	if(redisConfig.PASSWORD.length > 1) {
+   	var connection = 'redis://' + ':' + redisConfig.PASSWORD+'@'+redisConfig.HOST+':'+redisConfig.PORT;
+	} else {
+	   var connection = 'redis://'+redisConfig.HOST+':'+redisConfig.PORT+'/';		
+	}
+}	
 
 const redisClient = redis.createClient({
 	url: connection
